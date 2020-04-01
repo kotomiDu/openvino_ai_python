@@ -1,0 +1,1 @@
+`python main.py -m model\text_recognition_ch\text-recognition.xml -i input\10210.jpg`
