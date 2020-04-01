@@ -78,7 +78,7 @@ def test_text_recogntion():
         out  = text_recognition_model(oriim)
         #print(out)
         
-        def cv2ImgAddText(img, text, left, top, textColor=(0, 255, 255), textSize=15):
+        def cv2ImgAddText(img, text, left, top, textColor=(0, 255, 255), textSize=80):
             from PIL import Image,ImageDraw,ImageFont 
             if (isinstance(img, np.ndarray)):
                 img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
@@ -106,5 +106,5 @@ if __name__ == '__main__':
     args = build_argparser().parse_args()
     ie_core = load_ie_core(args.device, args.cpu_extension)
     #sys.exit(test_ov() or 0)            
-    test_text_detection()
-    #test_text_recogntion()
+    #test_text_detection()
+    test_text_recogntion()
