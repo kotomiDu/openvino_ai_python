@@ -47,9 +47,12 @@ def build_argparser():
 def test_text_detection():  
     #ie_core = load_ie_core(args.device, args.cpu_extension)
     text_detection_model = DetectionModel(args.model, args.device, ie_core)
-    imlist = glob.glob(args.input+"/20180704_*") 
-    print(len(imlist))
-    for idx,imfn in enumerate(imlist):
+    if os.path.isdir(args.input):
+        imglist = glob.glob(args.input)
+    else:
+        imglist = [args.input]
+    
+    for idx,imfn in enumerate(imglist):
         oriim = cv2.imread(imfn)
         bboxes  = text_detection_model(oriim)
         if len(bboxes[0]) > 0:    
@@ -65,13 +68,15 @@ def test_text_recogntion():
         text_recognition_model = engRecognitionModel(args.model, args.device, ie_core)
     elif 'ch' in args.model:
         text_recognition_model = chRecognitionModel(args.model, args.device, ie_core)
-    imglist = glob.glob(args.input)
+    if os.path.isdir(args.input):
+        imglist = glob.glob(args.input)
+    else:
+        imglist = [args.input]
     for imgpath in imglist:
         oriim = cv2.imread(imgpath)
-        ROI= [90, 180, 760,520 ]
-        oriim = oriim[ROI[0]:ROI[0]+ROI[1],ROI[2]:ROI[2]+ROI[3]]
+        print(imgpath)
         out  = text_recognition_model(oriim)
-        print(out)
+        #print(out)
         
         def cv2ImgAddText(img, text, left, top, textColor=(0, 255, 255), textSize=15):
             from PIL import Image,ImageDraw,ImageFont 
@@ -90,7 +95,7 @@ def test_text_recogntion():
         if type(out).__name__ != 'list':
             out = [out]
         for i,res in enumerate(out):
-            padding_image = cv2ImgAddText(padding_image,res, 0, i*10)
+            padding_image = cv2ImgAddText(padding_image,res, 0, i*20)
         res_im = np.concatenate((padding_image, oriim), axis=0)
         cv2.imshow("show",res_im)
         cv2.waitKey(0) 
