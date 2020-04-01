@@ -15,13 +15,10 @@ Intel OpenVINO AI usage
 
 ## Run app
 * `python main.py -m model\text_detection\text-detection-0004.xml -i input\text_detection.png`
- <img src="./doc/pics/detection_result.png" width = "400" height = "200"  align=left />  <br/>
-
 
 * `python main.py -m model\text_recognition_eng\text-recognition-0012.xml -i input\eng_recognition.png`
  
- <img src="./doc/pics/ch_result.JPG" width = "400" height = "200"  align=left /> <br/>
- 
-*
-`python main.py -m model\text_recognition_ch\text-recognition.xml -i input\ch_recognition.jpg`
- <img src="./doc/pics/eng_result.JPG" width = "400" height = "200"  align=left />
+*`python main.py -m model\text_recognition_ch\text-recognition.xml -i input\ch_recognition.jpg`
+ <img src="./doc/pics/detection_result.png" width = "400" height = "200"  align=left />  
+ <img src="./doc/pics/ch_result.JPG" width = "200" height = "100"  align=left />
+ <img src="./doc/pics/eng_result.JPG" width = "200" height = "100"  align=left />
