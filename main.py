@@ -106,5 +106,7 @@ if __name__ == '__main__':
     args = build_argparser().parse_args()
     ie_core = load_ie_core(args.device, args.cpu_extension)
     #sys.exit(test_ov() or 0)            
-    #test_text_detection()
-    test_text_recogntion()
+    if  "detect" in args.model:
+        test_text_detection()
+    if "recog" in args.model():
+        test_text_recogntion()
