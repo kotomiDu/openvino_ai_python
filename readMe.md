@@ -35,11 +35,11 @@ Intel OpenVINO AI usage
  | English Text recognition | LSTM+CTC Loss | 45.3MB |FP32 |
  | Chinese Text recognition | DenseNet+CTC Loss | 18.7MB |FP32 |
 
-### trick for Chinese Text recognition
+### *trick for Chinese Text recognition
 The trained data of this model is a black text with white background. Therefore the same text style is needed for test data.  
 But for some pictures with the irregular background, it is difficult to check whether the text is black, so two times inference is deployed in the project.
 
-#### example of the irregular background
+`example of the irregular background`
 <img src="./doc/pics/bad_case.jpg" width = "200" height = "100"   />
 
 ## Performance @ OpenVINO model
