@@ -1,7 +1,7 @@
 # Python Cache
 __pycache__/
 *.pyc
-
-#data
-input/*jpg
-
+log
+# test
+test_performance.py
+test/
