@@ -108,5 +108,5 @@ if __name__ == '__main__':
     #sys.exit(test_ov() or 0)            
     if  "detect" in args.model:
         test_text_detection()
-    if "recog" in args.model():
+    if "recog" in args.model:
         test_text_recogntion()
