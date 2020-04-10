@@ -21,7 +21,7 @@ Intel OpenVINO AI usage
 
 * `python main.py -m model/text_recognition_eng/text-recognition-0012.xml -i input/eng_recognition.png`
  
-* `python main.py -m model/text_recognition_ch/text-recognition.xml -i input/ch_recognition.jpg`  
+* `python main.py -m model/text_recognition_ch/text-recognition.xml -i input/ch_recognition.png`  
 
 ## Visualization
 
