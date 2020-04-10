@@ -83,9 +83,13 @@ def test_text_recogntion():
             if (isinstance(img, np.ndarray)):
                 img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
             draw = ImageDraw.Draw(img)
-           
+            #/usr/share/fonts/simsun.ttc
+            if "linux" in sys.platform:
+                fontParameter = "/usr/share/fonts/opentype/stix-word/STIX-Regular.otf"
+            else:
+                fontParameter = "font/simsun.ttc"
             fontStyle = ImageFont.truetype(
-                "font/simsun.ttc", textSize, encoding="utf-8")
+                fontParameter, textSize, encoding="utf-8")
            
             draw.text((left, top), text, textColor, font=fontStyle)
             return cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
